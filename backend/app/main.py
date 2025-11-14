@@ -1,14 +1,13 @@
-# backend/app/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .api import router as api_router
 
 app = FastAPI(title="FullTask AI Tutor 6.5")
 
-# CORS for local testing; tighten in prod
+# CORS for development; tighten in prod
 app.add_middleware(
  CORSMiddleware,
- allow_origins=["*"],
+ allow_origins=["*"], # replace with specific frontend URL in prod
  allow_credentials=True,
  allow_methods=["*"],
  allow_headers=["*"],
