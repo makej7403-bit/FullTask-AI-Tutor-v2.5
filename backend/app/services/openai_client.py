@@ -1,11 +1,7 @@
-# backend/app/services/openai_client.py
 import os
 import openai
 
-def get_api_key():
-    return os.environ.get("OPENAI_API_KEY")
-
-OPENAI_API_KEY = get_api_key()
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 openai.api_key = OPENAI_API_KEY
 
 def ask_ai(system_prompt: str, user_prompt: str, model: str = "gpt-4o",
