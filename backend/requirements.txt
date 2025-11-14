@@ -1,4 +1,7 @@
+# backend/requirements.txt
+
 fastapi
 uvicorn[standard]
 openai
 pydantic
+pydantic-settings>=2.0
