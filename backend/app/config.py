@@ -1,5 +1,11 @@
 # backend/app/config.py
-from pydantic import BaseSettings
+# Updated to use pydantic-settings (BaseSettings moved there)
+
+# Old (for reference):
+# from pydantic import BaseSettings
+
+# New:
+from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     model_name: str = "gpt-4o"
