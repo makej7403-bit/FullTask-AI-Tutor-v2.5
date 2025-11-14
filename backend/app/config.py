@@ -1,6 +1,3 @@
-# backend/app/config.py
-# Use BaseSettings from pydantic_settings (required for newer pydantic versions)
-
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
