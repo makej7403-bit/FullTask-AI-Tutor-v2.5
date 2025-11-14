@@ -1,0 +1,31 @@
+# render.yaml
+services:
+  - type: web
+    name: fulltask-tutor-backend
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    apiVersion: v1
+    healthCheck:
+      path: /
+      intervalSec: 30
+      timeoutSec: 5
+      healthyThreshold: 2
+      unhealthyThreshold: 2
+    envVars:
+      - key: OPENAI_API_KEY
+        value: "your-api-key" # prefer Render's environment secrets
+      - key: MODEL_NAME
+        value: "gpt-4o"
+      - key: TEMPERATURE
+        value: "0.2"
+      - key: MAX_TOKENS
+        value: "1500"
+      - key: APP_PORT
+        value: "10000"
+  - type: web
+    name: fulltask-tutor-frontend
+    env: static
+    staticDir: frontend/dist
+    buildCommand: echo "Frontend build step if applicable"
+    startCommand: sh -c "true"
